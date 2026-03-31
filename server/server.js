@@ -8,12 +8,9 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 import dotenv from 'dotenv'
 import carRoutes from './routes/car.js'
 
-// import the router from your routes file
-
-
 dotenv.config()
 
-const PORT = process.env.PORT || 3000
+const PORT = 3000
 
 const app = express()
 
