@@ -23,7 +23,7 @@ const createCar = async (req, res) => {
 
 const updateCar = async (req, res) => {
     try {
-        const { id } = req.params.id;
+        const { id } = req.params;
         const {name, exterior, roof, interior, wheels, price, isConvertible } = req.body;
         const query = 'UPDATE cars SET name = $1, exterior = $2, roof = $3, interior = $4, wheels = $5, price = $6, isConvertible = $7 WHERE id = $8';
         await pool.query(query, [name, exterior, roof, interior, wheels, price, isConvertible, id]);
@@ -35,7 +35,7 @@ const updateCar = async (req, res) => {
 
 const deleteCar = async (req, res) => {
     try {
-        const { id } = req.params.id
+        const { id } = req.params
         const query = 'DELETE FROM cars WHERE id = $1';
         await pool.query(query, [id]);
         res.json({ message: 'Car deleted successfully' });

@@ -2,6 +2,7 @@ import express from 'express'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import favicon from 'serve-favicon'
+import cors from 'cors'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 import dotenv from 'dotenv'
@@ -17,6 +18,7 @@ const PORT = process.env.PORT || 3000
 const app = express()
 
 app.use(express.json())
+app.use(cors())
 app.use('/images', express.static(path.join(__dirname, 'images')))
 
 if (process.env.NODE_ENV === 'development') {
